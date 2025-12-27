@@ -1,0 +1,301 @@
+.main-food-img-enlarged-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 600px;
+}
+.main-food-img-enlarged-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 750px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 50%;
+  z-index: 1;
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.18);
+  border: 4px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 80px 20px rgba(255,255,255,0.18);
+  pointer-events: none;
+  transition: backdrop-filter 0.3s, background 0.3s;
+}
+.main-food-img-enlarged {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-container {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: #181818;
+}
+.nav-links li:hover {
+  color: #ffb347;
+}
+.book-btn {
+  background: #ffb347;
+  color: #fff;
+  border: none;}
+
+  .hero-bg-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .blur-overlay-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(32px);
+    background: rgba(0,0,0,0.55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 48px 50px 48px;
+    position: relative;
+    z-index: 10;
+  }
+  .logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links li {
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .nav-links li:hover {
+    color: #ffb347;
+  }
+  .book-btn {
+    background: #ffb347;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  .book-btn:hover {
+    background: #ff8800;
+  }
+
+  .hero-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0 0 0;
+    padding: 0 48px;
+    min-height: 600px;
+    position: relative;
+    z-index: 5;
+  }
+  .hero-left {
+    flex: 1;
+    color: #fff;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    min-width: 150px;
+    margin-left: 120px;
+  }
+  .hero-title {
+    font-size: 6.5rem;
+    font-weight: bold;
+    margin-bottom: 28px;
+    line-height: 1.1;
+    letter-spacing: 3px;
+    max-width: 400px;
+    align-content: center;
+  }
+  .hero-desc {
+    font-size: 1.6rem;
+    max-width: 400px;
+    color: #e0e0e0;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+  }
+  .main-food-img-enlarged {
+    width: 700px;
+    height: 700px;
+    max-width: 60vw;
+    max-height: 80vh;
+    object-fit: cover;
+    border-radius: 50%;
+    border:50px  yellow;
+    background:none;
+    display: block;
+    margin: 0 auto;
+    z-index: 6;
+  }
+
+  .food-scroll {
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 32px;
+  }
+  .food-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .food-item.active {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  .food-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  }
+  .food-item span {
+    margin-left: 16px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  max-width: 40vw;
+  max-height: 70vh;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 12px solid #fff;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+}
+
+.food-scroll {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 32px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  padding: 32px 18px;
+  transition: background 0.3s;
+}
+.food-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+  margin-bottom: 8px;
+}
+.food-item.active {
+  opacity: 1;
+  transform: scale(1.12);
+}
+.food-item-img-blur {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.food-item-img-blur::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  z-index: 1;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.25);
+  border: 2px solid rgba(255,255,255,0.5);
+  transition: backdrop-filter 0.3s, background 0.3s;
+}
+.food-item.active .food-item-img-blur::before {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.35);
+  border: 2.5px solid #ffb347;
+}
+.food-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: none;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  transition: box-shadow 0.3s;
+}
+.food-item span {
+  margin-left: 16px;
+  color: #222;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+.food-item.active span {
+  color: #ff8800;
+}
