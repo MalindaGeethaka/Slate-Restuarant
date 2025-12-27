@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
 const foodItems = [
@@ -26,19 +26,38 @@ const foodItems = [
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
+const [prevIndex, setPrevIndex] = useState(0);
+const [activeBg, setActiveBg] = useState(1); // 0 or 1 to switch layers
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setPrevIndex(activeIndex);
+    setActiveIndex((prev) => (prev + 1) % foodItems.length);
+    setActiveBg((prev) => 1 - prev); // toggle layer 0 <-> 1
+  }, 3000);
+  return () => clearInterval(interval);
+}, [activeIndex]);
 
   const activeItem = foodItems[activeIndex];
 
   return (
     <div className="hero-container">
-      <div
-        className="hero-bg-full"
-        style={{ backgroundImage: `url(${activeItem.image})` }}
-      >
-        <div className="blur-overlay-full" />
-      </div>
+      <div className="hero-bg-full">
+  <div
+    className={`bg-layer ${activeBg === 0 ? 'active' : ''}`}
+    style={{ backgroundImage: `url(${foodItems[prevIndex].image})` }}
+  />
+  <div
+    className={`bg-layer ${activeBg === 1 ? 'active' : ''}`}
+    style={{ backgroundImage: `url(${activeItem.image})` }}
+  />
+  <div className="blur-overlay-full" />
+</div>
       <nav className="navbar">
-        <div className="logo">Slate</div>
+        <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img src="/images/Logo.png" alt="Slate Logo" style={{ height: '48px', width: 'auto', display: 'block' }} />
+          <span style={{ color: '#fff', fontWeight: 'bold', fontSize: '2.2rem', letterSpacing: '2px' }}>Slate</span>
+        </div>
         <ul className="nav-links">
           <li>Home</li>
           <li>About</li>

@@ -83,7 +83,7 @@
   }
   .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 92px;
     list-style: none;
   }
   .nav-links li {
@@ -91,6 +91,7 @@
     font-size: 1.1rem;
     cursor: pointer;
     transition: color 0.2s;
+    gap: 12px;
   }
   .nav-links li:hover {
     color: #ffb347;
@@ -172,7 +173,7 @@
   }
 
   .food-scroll {
-    position: absolute;
+    position: relative;
     top: 50%;
     right: 32px;
     transform: translateY(-50%);
@@ -187,8 +188,8 @@
     flex-direction: row;
     align-items: center;
     cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s, transform 0.2s;
+    opacity: 0.8;
+    transition: opacity 1s ease-in-out;
   }
   .food-item.active {
     opacity: 1;
@@ -223,16 +224,17 @@
   position: absolute;
   top: 50%;
   right: 32px;
-  transform: translateY(-50%);
   z-index: 5;
+  width: auto;
+  height: 420px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 24px;
   background: rgba(255,255,255,0.95);
   border-radius: 32px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.10);
   padding: 32px 18px;
+  overflow: hidden;
   transition: background 0.3s;
 }
 .food-item {
@@ -241,12 +243,13 @@
   align-items: center;
   cursor: pointer;
   opacity: 0.7;
-  transition: opacity 0.3s, transform 0.3s;
   margin-bottom: 8px;
+  transition: opacity 0.4s cubic-bezier(.4,2,.6,1), transform 0.4s cubic-bezier(.4,2,.6,1);
 }
 .food-item.active {
   opacity: 1;
-  transform: scale(1.12);
+  transform: scale(1.5);
+  z-index: 2;
 }
 .food-item-img-blur {
   position: relative;
@@ -257,6 +260,7 @@
   align-items: center;
   justify-content: center;
   overflow: visible;
+  transition: box-shadow 0.4s cubic-bezier(.4,2,.6,1), filter 0.4s cubic-bezier(.4,2,.6,1);
 }
 .food-item-img-blur::before {
   content: '';
@@ -286,7 +290,7 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.4s cubic-bezier(.4,2,.6,1), filter 0.4s cubic-bezier(.4,2,.6,1);
 }
 .food-item span {
   margin-left: 16px;
@@ -298,4 +302,18 @@
 }
 .food-item.active span {
   color: #ff8800;
+}
+.bg-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.bg-layer.active {
+  opacity: 1;
 }
