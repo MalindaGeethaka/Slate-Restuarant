@@ -27,7 +27,7 @@ app.use('/api/reviews', reviewRoutes);
 
 // Connect to MongoDB
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://Slate-Admin:Slate123@cluster0.413t7oc.mongodb.net/Slate?appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI)
   .then(() => {
